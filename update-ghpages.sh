@@ -3,6 +3,9 @@
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"
 
+git reset --hard master
+git checkout master
+
 if type "jekyll" > /dev/null; then
   echo "jekyll already installed"
 else
@@ -14,13 +17,11 @@ jekyll -v
 
 REPOPATH=`pwd`
 
-cd ~
+cp ${REPOPATH}/README.md ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 
-rm -fr content
-mkdir content
-cp ${REPOPATH}/README.md ~/content/index.md
-echo "---" | cat - ~/content/index.md > /tmp/out && mv /tmp/out ~/content/index.md
-echo "---" | cat - ~/content/index.md > /tmp/out && mv /tmp/out ~/content/index.md
+cd ~
 
 rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
@@ -50,7 +51,9 @@ cd ~/jekyll
 bundle install
 
 sh ~/config.jekyll.sh
-jekyll build --source ~/content
+exit
+
+jekyll build
 
 cd ${REPOPATH}
 
