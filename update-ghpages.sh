@@ -3,6 +3,7 @@
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"
 
+gem install bundler jekyll
 gem -v
 jekyll -v
 
