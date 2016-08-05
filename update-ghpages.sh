@@ -3,7 +3,7 @@
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"
 
-git reset --hard master
+git reset --hard HEAD
 git checkout master
 
 if type "jekyll" > /dev/null; then
