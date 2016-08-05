@@ -18,9 +18,9 @@ cd ~
 
 rm -fr content
 mkdir content
-cp ${REPOPATH}/README.md ~/content/README.md
-echo "---" | cat - ~/content/README.md > /tmp/out && mv /tmp/out ~/content/README.md
-echo "---" | cat - ~/content/README.md > /tmp/out && mv /tmp/out ~/content/README.md
+cp ${REPOPATH}/README.md ~/content/index.md
+echo "---" | cat - ~/content/index.md > /tmp/out && mv /tmp/out ~/content/index.md
+echo "---" | cat - ~/content/index.md > /tmp/out && mv /tmp/out ~/content/index.md
 
 rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
