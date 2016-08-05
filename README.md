@@ -16,12 +16,18 @@ xdg-open http://localhost:8080/gh-pages/
 # travis
 
 ```yml
-language: c
+language: ruby
+rvm:
+  - 2.2
+
+before_install:
+  - gem update --system
+  - gem --version
 
 env:
   global:
     - GH=YOUR/REPO
-    - JEKYLL=pietromenna/jekyll-cayman-theme
+    - JEKYLL=pietromenna/jekyll-cayman-theme # define here the gh slug to the jekyll theme
     - secure: GH_TOKEN=xxx
 
 script:
@@ -35,5 +41,29 @@ then run
 ```sh
 travis encrypt --add -r YOUR/REPO GH_TOKEN=xxxx
 travis lint
-touch .travis.yml
+```
+
+then create a file `config.jekyll.sh`, in this file, configure git, configure the jekyll folder,
+
+```sh
+#!/bin/bash
+
+git config --global user.name "your usernmae"
+git config --global user.email "your email"
+
+cat <<EOT > _config.yml
+# Put the new jekyll config here for the theme you have selected
+EOT
+
+# Update the Gemfile if you d like, this is a gh-pages like Gemfile
+cat <<EOT > Gemfile
+source 'https://rubygems.org'
+gem 'github-pages', group: :jekyll_plugins
+EOT
+
+# update the jekyll theme if something needs to
+cat <<EOT > _includes/page-header.html
+... New html content here
+EOT
+
 ```
