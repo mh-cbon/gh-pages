@@ -16,6 +16,8 @@ xdg-open http://localhost:8080/gh-pages/
 # travis
 
 ```yml
+sudo: required
+
 language: ruby
 rvm:
   - 2.2
