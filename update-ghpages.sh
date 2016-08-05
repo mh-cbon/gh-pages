@@ -14,6 +14,7 @@ rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
+rm -fr _site/*
 
 cd ${REPOPATH}
 
@@ -38,10 +39,9 @@ fi
 
 cd ~/jekyll
 
-sh ~/config.jekyll.sh
-
 bundle install
 
+sh ~/config.jekyll.sh
 jekyll build
 
 cd ${REPOPATH}
