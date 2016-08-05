@@ -16,17 +16,24 @@ xdg-open http://localhost:8080/gh-pages/
 # travis
 
 ```yml
-language: ruby
+language: c
 
 env:
   global:
-    - GH=mh-cbon/gh-pages
+    - GH=YOUR/REPO
     - JEKYLL=pietromenna/jekyll-cayman-theme
     - secure: GH_TOKEN=xxx
 
 script:
   - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/setup.sh | sh -x
   - source ~/.rvm/scripts/rvm
-  - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/update-ghpages.sh |  sh -x
+  - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/update-ghpages.sh | sh -x
 
+```
+
+then run
+```sh
+travis encrypt --add -r YOUR/REPO GH_TOKEN=xxxx
+travis lint
+touch .travis.yml
 ```
