@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git config --global user.name "mh-cbon"
+git config --global user.email mh-cbon@users.noreply.github.com
+
 REPOINFO=`wget -q --no-check-certificate -O - https://api.github.com/repos/${GH}`
 
 TAGLINE=`echo "${REPOINFO}" | grep '"description": ' | head -n 1 | cut -d '"' -f 4`
