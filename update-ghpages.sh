@@ -34,6 +34,10 @@ cd ${REPOPATH}
 
 cp config.jekyll.sh ~
 
+cd ..
+rm -fr ${REPOPATH}
+git clone https://github.com/${GH}.git ${REPOPATH}
+cd ${REPOPATH}
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
   echo "already on gh-pages"
 else
