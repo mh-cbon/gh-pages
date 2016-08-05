@@ -24,6 +24,7 @@ git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
 rm -fr ~/jekyll/_site
+rm -fr ~/jekyll/*md
 
 cp ${REPOPATH}/README.md ~/jekyll/index.md
 echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
