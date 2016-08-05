@@ -48,8 +48,6 @@ cd ${REPOPATH}
 
 cp -fr ~/jekyll/_site/* .
 
-git status
-
 git add -A
 git commit -am "generate gh-pages"
 set +x # disable debug output because that would display the token in clear text..
