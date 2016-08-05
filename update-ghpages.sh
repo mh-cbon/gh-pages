@@ -52,7 +52,7 @@ cd ~/jekyll
 sh ~/config.jekyll.sh
 
 bundle install
-jekyll build
+bundle exec jekyll build
 
 
 cd ${REPOPATH}
