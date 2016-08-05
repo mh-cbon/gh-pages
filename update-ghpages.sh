@@ -3,24 +3,32 @@
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"
 
-gem install bundler jekyll
+if type "jekyll" > /dev/null; then
+  echo "jekyll already installed"
+else
+  gem install bundler jekyll
+fi
+
 gem -v
 jekyll -v
 
 REPOPATH=`pwd`
 
 cd ~
+
+rm -fr content
+mkdir content
+cp ${REPOPATH}/README.md ~/content/README.md
+echo "---" | cat - ~/content/README.md > /tmp/out && mv /tmp/out ~/content/README.md
+echo "---" | cat - ~/content/README.md > /tmp/out && mv /tmp/out ~/content/README.md
+
 rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
-rm -fr _site/*
+rm -fr ~/jekyll/_site
 
 cd ${REPOPATH}
-
-cp README.md ~/jekyll/index.md
-echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
-echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 
 cp config.jekyll.sh ~
 
@@ -42,7 +50,7 @@ cd ~/jekyll
 bundle install
 
 sh ~/config.jekyll.sh
-jekyll build
+jekyll build --source ~/content
 
 cd ${REPOPATH}
 
