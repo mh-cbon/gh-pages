@@ -17,10 +17,6 @@ jekyll -v
 
 REPOPATH=`pwd`
 
-cp ${REPOPATH}/README.md ~/jekyll/README.md
-echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
-echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
-
 cd ~
 
 rm -fr jekyll
@@ -28,6 +24,10 @@ git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
 rm -fr ~/jekyll/_site
+
+cp ${REPOPATH}/README.md ~/jekyll/README.md
+echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
+echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
 
 cd ${REPOPATH}
 
