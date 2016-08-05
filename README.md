@@ -18,7 +18,7 @@ xdg-open http://localhost:8080/gh-pages/
 ```yml
 language: ruby
 rvm:
-  - 2.2
+  - 2.3
 
 before_install:
   - gem update --system
