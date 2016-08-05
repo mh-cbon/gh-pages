@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"

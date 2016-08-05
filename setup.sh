@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 sudo apt-get update -y
 sudo apt-get install nodejs git ruby ruby-dev curl -y
