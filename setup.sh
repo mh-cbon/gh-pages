@@ -2,7 +2,7 @@
 
 sudo apt-get update -y
 
-if [ -d "~/travis/" ]; then
+if [ -d "/home/travis/" ]; then
   sudo apt-get install nodejs ruby-dev -y
 else
   sudo apt-get install nodejs git ruby ruby-dev curl -y
