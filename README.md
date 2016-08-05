@@ -18,11 +18,10 @@ xdg-open http://localhost:8080/gh-pages/
 ```yml
 sudo: required
 
-language: ruby
-rvm:
-  - 2.2
+language: c # or whatever else you need
 
 before_install:
+  - rvm use 2.2 --install --binary --fuzzy
   - gem update --system
   - gem --version
 

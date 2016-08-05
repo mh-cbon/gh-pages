@@ -44,7 +44,7 @@ kramdown:
   hard_wrap: false
 EOT
 
-
+rm Gemfil*
 cat <<EOT > Gemfile
 source 'https://rubygems.org'
 gem 'github-pages', group: :jekyll_plugins
