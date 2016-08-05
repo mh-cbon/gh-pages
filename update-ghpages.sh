@@ -52,7 +52,6 @@ cd ~/jekyll
 bundle install
 
 sh ~/config.jekyll.sh
-exit
 
 jekyll build
 
