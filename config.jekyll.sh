@@ -34,7 +34,7 @@ defaults:
 gems:
   - github-pages
 
-exclude: [Gemfile, Gemfile.lock, index.html]
+exclude: [Gemfile, Gemfile.lock]
 
 #Others
 markdown: kramdown

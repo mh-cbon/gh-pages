@@ -25,9 +25,9 @@ cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
 rm -fr ~/jekyll/_site
 
-cp ${REPOPATH}/README.md ~/jekyll/README.md
-echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
-echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
+cp ${REPOPATH}/README.md ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 
 cd ${REPOPATH}
 
