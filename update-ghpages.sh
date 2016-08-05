@@ -17,9 +17,9 @@ jekyll -v
 
 REPOPATH=`pwd`
 
-cp ${REPOPATH}/README.md ~/jekyll/index.md
-echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
-echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
+cp ${REPOPATH}/README.md ~/jekyll/README.md
+echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
+echo "---" | cat - ~/jekyll/README.md > /tmp/out && mv /tmp/out ~/jekyll/README.md
 
 cd ~
 
