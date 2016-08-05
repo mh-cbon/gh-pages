@@ -3,7 +3,6 @@
 sudo apt-get update -y
 
 if [ -d "~/travis/" ]; then
-  # Control will enter here if $DIRECTORY exists.
   sudo apt-get install nodejs ruby-dev -y
 else
   sudo apt-get install nodejs git ruby ruby-dev curl -y

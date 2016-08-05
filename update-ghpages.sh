@@ -49,11 +49,11 @@ fi
 
 cd ~/jekyll
 
-bundle install
-
 sh ~/config.jekyll.sh
 
+bundle install
 jekyll build
+
 
 cd ${REPOPATH}
 
