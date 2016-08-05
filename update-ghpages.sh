@@ -43,3 +43,16 @@ sh ~/config.jekyll.sh
 bundle install
 
 jekyll build
+
+cd ${REPOPATH}
+
+cp -fr ~/jekyll/_site/* .
+
+git status
+
+git add -A
+git commit -am "generate gh-pages"
+set +x # disable debug output because that would display the token in clear text..
+echo "git push --force --quiet https://GH_TOKEN@github.com/${GH}.git gh-pages"
+git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" gh-pages \
+2>&1 | sed -re "s/${GH_TOKEN}/GH_TOKEN/g"
