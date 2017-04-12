@@ -28,6 +28,7 @@ before_install:
 env:
   global:
     - GH=YOUR/REPO
+    - EMAIL=YOUR@EMAIL
     - JEKYLL=pietromenna/jekyll-cayman-theme # define here the gh slug to the jekyll theme
     - secure: GH_TOKEN=xxx
 
@@ -35,7 +36,6 @@ script:
   - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/setup.sh | sh -x
   - source ~/.rvm/scripts/rvm
   - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/update-ghpages.sh | sh -x
-
 ```
 
 then run
@@ -44,7 +44,11 @@ travis encrypt --add -r YOUR/REPO GH_TOKEN=xxxx
 travis lint
 ```
 
-then create a file `config.jekyll.sh`, in this file, configure git, configure the jekyll folder,
+then create a file `config.jekyll.sh` at repository root,
+
+If such file does not exist, it will default to [this one](https://raw.githubusercontent.com/mh-cbon/gh-pages/master/config.jekyll.sh)
+
+configure git, configure the jekyll folder,
 
 ```sh
 #!/bin/bash

@@ -4,9 +4,6 @@
 # GH=mh-cbon/emd
 # EMAIL=mh-cbon@users.noreply.github.com
 
-REPO=`echo ${GH} | cut -d '/' -f 2`
-USER=`echo ${GH} | cut -d '/' -f 1`
-
 if ["${GH}" == ""]; then
   echo "GH is not properly set. Check your travis file."
   exit 1
@@ -16,6 +13,9 @@ if ["${EMAIL}" == ""]; then
   echo "EMAIL is not properly set. Check your travis file."
   exit 1
 fi
+
+REPO=`echo ${GH} | cut -d '/' -f 2`
+USER=`echo ${GH} | cut -d '/' -f 1`
 
 git config --global user.name "$USER"
 git config --global user.email "$EMAIL"

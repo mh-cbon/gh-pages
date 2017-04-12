@@ -9,7 +9,12 @@ if ["${GH}" == ""]; then
 fi
 
 if ["${JEKYLL}" == ""]; then
-  echo "GH is not properly set. Check your travis file."
+  echo "JEKYLL is not properly set. Check your travis file."
+  exit 1
+fi
+
+if ["${GH_TOKEN}" == ""]; then
+  echo "GH_TOKEN is not properly set. Check your travis file."
   exit 1
 fi
 
