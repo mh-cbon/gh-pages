@@ -1,7 +1,24 @@
 #!/bin/bash
 
-git config --global user.name "mh-cbon"
-git config --global user.email mh-cbon@users.noreply.github.com
+# expected to exist
+# GH=mh-cbon/emd
+# EMAIL=mh-cbon@users.noreply.github.com
+
+REPO=`echo ${GH} | cut -d '/' -f 2`
+USER=`echo ${GH} | cut -d '/' -f 1`
+
+if ["${GH}" == ""]; then
+  echo "GH is not properly set. Check your travis file."
+  exit 1
+fi
+
+if ["${EMAIL}" == ""]; then
+  echo "EMAIL is not properly set. Check your travis file."
+  exit 1
+fi
+
+git config --global user.name "$USER"
+git config --global user.email "$EMAIL"
 
 REPOINFO=`wget -q --no-check-certificate -O - https://api.github.com/repos/${GH}`
 

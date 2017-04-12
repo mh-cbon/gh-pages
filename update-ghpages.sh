@@ -3,6 +3,16 @@
 # GH='mh-cbon/test-repo'
 # JEKYLL="pietromenna/jekyll-cayman-theme"
 
+if ["${GH}" == ""]; then
+  echo "GH is not properly set. Check your travis file."
+  exit 1
+fi
+
+if ["${JEKYLL}" == ""]; then
+  echo "GH is not properly set. Check your travis file."
+  exit 1
+fi
+
 git reset --hard HEAD
 git checkout master
 
