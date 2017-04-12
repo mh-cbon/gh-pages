@@ -32,7 +32,12 @@ echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 
 cd ${REPOPATH}
 
-cp config.jekyll.sh ~
+if [ ! -f "config.jekyll.sh" ]; then
+  wget https://raw.githubusercontent.com/mh-cbon/gh-pages/master/config.jekyll.sh -O ~/config.jekyll.sh
+else
+  cp config.jekyll.sh ~
+fi
+
 
 cd ..
 rm -fr ${REPOPATH}
