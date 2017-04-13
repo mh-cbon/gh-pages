@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # expected to exist
 # GH=mh-cbon/emd
