@@ -69,8 +69,10 @@ cd ${REPOPATH}
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
+git remote update
+git fetch
+git remote show origin
 git remote -v
-git fetch origin
 git branch -avv
 git checkout -b gh-pages origin/gh-pages | echo "not remote gh pages"
 
