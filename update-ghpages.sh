@@ -60,11 +60,12 @@ bundle install
 bundle exec jekyll build
 
 
-# cd ..
-# rm -fr ${REPOPATH}
+cd ${REPOPATH}/..
+JREPOPATH="${REPOPATH}/J/"
+rm -fr ${JREPOPATH}
 
-# git clone https://github.com/${GH}.git ${REPOPATH}
-cd ${REPOPATH}
+git clone https://github.com/${GH}.git ${JREPOPATH}
+cd ${JREPOPATH}
 
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
@@ -96,7 +97,7 @@ else
   fi
 fi
 
-cp -fr ~/jekyll/_site/* ${REPOPATH}/
+cp -fr ~/jekyll/_site/* ${JREPOPATH}/
 
 git add -A
 git commit -am "generate gh-pages"
