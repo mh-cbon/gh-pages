@@ -15,4 +15,4 @@ env:
     - secure: c9FLhkNdy52BSRprxPjwIiSBUO1IPqayjVrxRcVDMAf9yBNYZ63+2NhU71uNanVajPSSjpg1PNmghpCqFOyS+gckne+zHmvOP59UWpmcmU8atBkoV5r1lNk0KJz6dxJdA0DX7sMI1rZT/QmvAIE2JtAeqBqohCQANSyR4HvjHsTBZWsSUFmBA7zotlKmZWfY3cf9Gsd9DPlOaeoVgvQ4ghLW3EUkJ7I4vzUm5pvIkKta1IL++s5EQK+llDn9Elu4FPMRvjRDTAuhoGtqgDlcOKLqQxebLHFjyDD/uaMVz2GXBFGVKKVSVMPMDxz+sLBqt2TNR9P602WY5+Gca4ygiATurcS10J8Ls735OBgW5HNQmT0GwZuJ60N4ZnKqEPkqyX9JdcgR89krKWjN/mfBmj8tfpslfcCNy424xL5MB5pWzrLjEhaRX90qlqAH4xpOY2XOuEVCbAzHVM40E6RpWxm/ecTLG5TlvZzBEYuTYe7NGdr7K8PP0bSrTwtNY0RbCexXfiHZ5ra1YbasebKSS8jXG0Bzk66o1Lf+wVvta+Zod+seteCvJbl1eaJRn4ZxcJpx0Sgd2Ti4OAoGkTXW2wCx09mju8V+jcae3eIcKIXrpAB5ny9g71xwRxneIaQbZnhA5avRUhf322WjNOSqtM0yS6oyWFhOYPLr5KhCgVo=
 
 script:
-  - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/all.sh?x=xdflvg | sh -x
+  - wget -O - https://raw.githubusercontent.com/mh-cbon/gh-pages/master/all.sh?x=xdfslvg | sh -x

@@ -70,32 +70,7 @@ cd ${JREPOPATH}
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
-git remote update
-git fetch
-git fetch origin
-git remote show origin
-git remote -v
-git branch -avv
-
-# git checkout gh-pages origin/gh-pages | echo "not remote gh pages"
-# git checkout -b gh-pages origin/gh-pages | echo "not remote gh pages"
 git checkout gh-pages | echo "not remote gh pages"
-# git checkout -b gh-pages | echo "not remote gh pages"
-
-git branch -avv
-
-if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
-  echo "already on gh-pages"
-else
-  if [ `git branch -a | egrep 'remotes/origin/gh-pages$'` ]; then
-    # gh-pages already exist on remote
-    git checkout gh-pages
-  else
-    git checkout -b gh-pages
-    find . -maxdepth 1 -mindepth 1 -not -name .git -exec rm -rf {} \;
-    git commit -am "clean up"
-  fi
-fi
 
 cp -fr ~/jekyll/_site/* ${JREPOPATH}/
 
