@@ -74,7 +74,9 @@ git fetch
 git remote show origin
 git remote -v
 git branch -avv
+git checkout gh-pages | echo "not remote gh pages"
 git checkout -b gh-pages | echo "not remote gh pages"
+git checkout gh-pages origin/gh-pages | echo "not remote gh pages"
 git checkout -b gh-pages origin/gh-pages | echo "not remote gh pages"
 
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
