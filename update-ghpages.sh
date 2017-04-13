@@ -70,7 +70,9 @@ git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
 git remote -v
-git checkout -b gh-pages origin/gh-pages | echo "no tremote gh pages"
+git fetch origin
+git branch -avv
+git checkout -b gh-pages origin/gh-pages | echo "not remote gh pages"
 
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
   echo "already on gh-pages"
