@@ -18,6 +18,9 @@ if ["${GH_TOKEN}" == ""]; then
   exit 1
 fi
 
+REPO=`echo ${GH} | cut -d '/' -f 2`
+USER=`echo ${GH} | cut -d '/' -f 1`
+
 REPOPATH=`pwd`
 
 if type "jekyll" > /dev/null; then
@@ -65,6 +68,9 @@ cd ${REPOPATH}
 
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
+
+git remote -v
+git checkout -b gh-pages origin/gh-pages | echo "no tremote gh pages"
 
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
   echo "already on gh-pages"
