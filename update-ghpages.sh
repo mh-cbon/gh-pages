@@ -18,8 +18,7 @@ if ["${GH_TOKEN}" == ""]; then
   exit 1
 fi
 
-git reset --hard HEAD
-git checkout master
+REPOPATH=`pwd`
 
 if type "jekyll" > /dev/null; then
   echo "jekyll already installed"
@@ -30,12 +29,13 @@ fi
 gem -v
 jekyll -v
 
-REPOPATH=`pwd`
+git reset --hard HEAD
+git checkout master
 
 cd ~
-
 rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
+
 cd ~/jekyll
 rm -fr ~/jekyll/_posts/*
 rm -fr ~/jekyll/_site
@@ -45,19 +45,27 @@ cp ${REPOPATH}/README.md ~/jekyll/index.md
 echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
 
-cd ${REPOPATH}
-
-if [ ! -f "config.jekyll.sh" ]; then
+if [ ! -f "${REPOPATH}/config.jekyll.sh" ]; then
   wget https://raw.githubusercontent.com/mh-cbon/gh-pages/master/config.jekyll.sh -O ~/config.jekyll.sh
 else
-  cp config.jekyll.sh ~
+  cp ${REPOPATH}/config.jekyll.sh ~
 fi
 
+sh ~/config.jekyll.sh
 
-cd ..
-rm -fr ${REPOPATH}
-git clone https://github.com/${GH}.git ${REPOPATH}
+bundle install
+bundle exec jekyll build
+
+
+# cd ..
+# rm -fr ${REPOPATH}
+
+# git clone https://github.com/${GH}.git ${REPOPATH}
 cd ${REPOPATH}
+
+git config user.name "${USER}"
+git config user.email "${EMAIL}"
+
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
   echo "already on gh-pages"
 else
@@ -71,17 +79,7 @@ else
   fi
 fi
 
-cd ~/jekyll
-
-sh ~/config.jekyll.sh
-
-bundle install
-bundle exec jekyll build
-
-
-cd ${REPOPATH}
-
-cp -fr ~/jekyll/_site/* .
+cp -fr ~/jekyll/_site/* ${REPOPATH}/
 
 git add -A
 git commit -am "generate gh-pages"
