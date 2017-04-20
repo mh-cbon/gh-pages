@@ -70,7 +70,7 @@ cd ${JREPOPATH}
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
-git checkout gh-pages | echo "not remote gh pages"
+git checkout gh-pages | git checkout -b gh-pages | echo "not remote gh pages"
 
 cp -fr ~/jekyll/_site/* ${JREPOPATH}/
 
