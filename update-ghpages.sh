@@ -70,13 +70,17 @@ cd ${JREPOPATH}
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
-git checkout gh-pages | git checkout -b gh-pages | echo "not remote gh pages"
+git checkout gh-pages | echo "not remote gh pages"
+git checkout -b gh-pages | echo "not remote gh pages"
+
+git branch -aav
+git status
 
 cp -fr ~/jekyll/_site/* ${JREPOPATH}/
 
 git add -A
 git commit -am "generate gh-pages"
 set +x # disable debug output because that would display the token in clear text..
-echo "git push --force --quiet https://GH_TOKEN@github.com/${GH}.git gh-pages"
+echo "git push --force --quiet -u https://GH_TOKEN@github.com/${GH}.git gh-pages"
 git push --force --quiet -u "https://${GH_TOKEN}@github.com/${GH}.git" gh-pages \
 2>&1 | sed -re "s/${GH_TOKEN}/GH_TOKEN/g"
