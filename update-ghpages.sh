@@ -72,7 +72,7 @@ git config user.email "${EMAIL}"
 
 (git branch -aav | grep gh-pages) && git checkout gh-pages | echo "not remote gh pages"
 (git branch -aav | grep gh-pages) || (git checkout -b gh-pages;\
- git rm --cached $(git ls-files); git commit -am clean) | echo "not remote gh pages"
+ git rm $(git ls-files); git commit -am clean) | echo "not remote gh pages"
 
 git branch -aav
 git status
